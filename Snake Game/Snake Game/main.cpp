@@ -3,6 +3,9 @@
 #include <time.h>
 #include <conio.h>
 
+#pragma once
+#include "move.h";
+
 char map[10][20] = {
 	218, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 196, 191,
 	179, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 179,
@@ -78,58 +81,58 @@ void showMap() {
 	}
 }
 
-int move(char key, int Y, int X) {
-
-	switch (key) {
-		//move up
-	case 'U':
-		if (map[Y - 1][X] == 196) {
-			return 0;
-		}
-		else {
-			map[Y][X] = ' ';
-			map[Y - 1][X] = '#';
-			return -1;
-		}
-		break;
-
-		//move down
-	case 'D':
-		if (map[Y + 1][X] == 196) {
-			return 0;
-		}
-		else {
-			map[Y][X] = ' ';
-			map[Y + 1][X] = '#';
-			return 1;
-		}
-		break;
-
-		//move right
-	case 'R':
-		if (map[Y][X + 1] == 179) {
-			return 0;
-		}
-		else {
-			map[Y][X] = ' ';
-			map[Y][X + 1] = '#';
-			return 1;
-		}
-		break;
-
-		//move left
-	case 'L':
-		if (map[Y][X - 1] == 179) {
-			return 0;
-		}
-		else {
-			map[Y][X] = ' ';
-			map[Y][X - 1] = '#';
-			return -1;
-		}
-		break;
-	}
-}
+//int move(char key, int Y, int X) {
+//
+//	switch (key) {
+//		//move up
+//	case 'U':
+//		if (map[Y - 1][X] == 196) {
+//			return 0;
+//		}
+//		else {
+//			map[Y][X] = ' ';
+//			map[Y - 1][X] = '#';
+//			return -1;
+//		}
+//		break;
+//
+//		//move down
+//	case 'B':
+//		if (map[Y + 1][X] == 196) {
+//			return 0;
+//		}
+//		else {
+//			map[Y][X] = ' ';
+//			map[Y + 1][X] = '#';
+//			return 1;
+//		}
+//		break;
+//
+//		//move right
+//	case 'R':
+//		if (map[Y][X + 1] == 179) {
+//			return 0;
+//		}
+//		else {
+//			map[Y][X] = ' ';
+//			map[Y][X + 1] = '#';
+//			return 1;
+//		}
+//		break;
+//
+//		//move left
+//	case 'L':
+//		if (map[Y][X - 1] == 179) {
+//			return 0;
+//		}
+//		else {
+//			map[Y][X] = ' ';
+//			map[Y][X - 1] = '#';
+//			return -1;
+//		}
+//		break;
+//	}
+//}
 
 int main() {
 	//initialising the first position of the snake
@@ -181,12 +184,10 @@ int main() {
 		}
 
 		//changing the position and moving the snake
-		if (control == 'U' || control == 'B') {
-			positionY += move(control, positionY, positionX);
-		}
-		else {
-			positionX += move(control, positionY, positionX);
-		}
+		if(control == 'U' || control == 'B')
+			positionY += move(map, control, positionY, positionX);
+		else
+			positionX += move(map, control, positionY, positionX);
 
 		system("cls");
 	}
