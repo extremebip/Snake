@@ -1,3 +1,8 @@
-﻿  move.cpp
-c:\users\anthony gt\documents\github\snake\snake game\snake game\move.cpp(57): warning C4715: 'move': not all control paths return a value
+﻿  apple.cpp
+  main.cpp
+c:\users\anthony gt\documents\github\snake\snake game\snake game\main.cpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\anthony gt\documents\github\snake\snake game\snake game\main.cpp(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\anthony gt\documents\github\snake\snake game\snake game\main.cpp(30): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+c:\users\anthony gt\documents\github\snake\snake game\snake game\main.cpp(30): warning C4309: 'initializing': truncation of constant value
+  Generating Code...
   Snake Game.vcxproj -> C:\Users\Anthony GT\Documents\GitHub\Snake\Snake Game\Debug\Snake Game.exe

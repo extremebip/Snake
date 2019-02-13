@@ -1,7 +1,24 @@
 #include "move.h"
+#include <time.h>
 
+//function to delay time
+void delay(float number_of_seconds)
+{
+	// Converting time into milli_seconds 
+	int milli_seconds = 1000 * number_of_seconds;
+
+	// Stroing start time 
+	clock_t start_time = clock();
+
+	// looping till required time is not acheived 
+	while (clock() < start_time + milli_seconds);
+}
+
+//move function
+//returns value to change position of the snake head
 int move(char arr[10][20], char key, int Y, int X) {
 	int aras;
+	delay(0.5);
 
 	switch (key) {
 		//move up
